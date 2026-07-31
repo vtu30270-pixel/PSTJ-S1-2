@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+interface PerformOperation {
+    boolean check(int a);
+}
+
+public class Main {
+
+    public static PerformOperation isPalindrome() {
+        return n -> {
+            int original = n;
+            int reverse = 0;
+
+            while (n > 0) {
+                reverse = reverse * 10 + (n % 10);
+                n /= 10;
+            }
+
+            return original == reverse;
+        };
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        PerformOperation op = isPalindrome();
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        if (op.check(num)) {
+            System.out.println("PALINDROME");
+        } else {
+            System.out.println("NOT PALINDROME");
+        }
+
+        sc.close();
+    }
+}
