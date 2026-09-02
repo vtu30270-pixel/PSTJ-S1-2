@@ -1,0 +1,27 @@
+class MyHashSet {
+
+    int[] arr;
+    int size;
+
+    public MyHashSet() {
+        arr = new int[1000001];
+        size = 1000001;
+        
+        // -1 means the key is not present
+        for (int i = 0; i < size; i++) {
+            arr[i] = -1;
+        }
+    }
+
+    public void add(int key) {
+        arr[key] = key;
+    }
+
+    public void remove(int key) {
+        arr[key] = -1;
+    }
+
+    public boolean contains(int key) {
+        return arr[key] != -1;
+    }
+}
